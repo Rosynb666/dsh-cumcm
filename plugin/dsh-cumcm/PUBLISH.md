@@ -6,7 +6,7 @@
 ## 一、仓库信息（直接抄）
 
 - **仓库名**：`dsh-cumcm`
-- **一句话**：给国赛（CUMCM）论文配一块看得见的工作台——七阶段进度、facts 事实台账、一键体检与编译 PDF。
+- **一句话**：给国赛（CUMCM）论文配一块看得见的工作台——P0–P7 进度、facts 事实台账、一键体检与编译 PDF。
 - **README 首段**：配套 `math-modeling-cumcm` skill，把「数字可追溯 + AI 使用合规 + 排版硬指标」做进面板。
 - **Topics**：`dsh` `dsh-plugin` `deepseek-harness` `cordis` `cumcm` `math-modeling` `latex` `chinese`
 

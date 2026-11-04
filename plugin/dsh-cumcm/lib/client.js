@@ -31,7 +31,7 @@
       var zh = {
         'tab.title': '数模台',
         'tab.guide': '打开数模台',
-        'tab.guideDesc': '看七阶段进度、事实台账，一键体检与编译论文 PDF。',
+        'tab.guideDesc': '看 P0–P7 进度、事实台账，一键体检与编译论文 PDF。',
         'pick': '工作区',
         'new.placeholder': '新建工作区，如 电池寿命预测',
         'new.button': '新建',

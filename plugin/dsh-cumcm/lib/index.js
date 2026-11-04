@@ -4,7 +4,7 @@
  * 数模台：给 math-modeling-cumcm skill 配一个「看得见的工作台」。
  *
  * 它只做四件事：
- *   1. 读工作区（analysis.md / facts.json / paper.tex / figs / PDF）算出七阶段进度；
+ *   1. 读工作区（analysis.md / facts.json / paper.tex / figs / PDF）算出 P0–P7 进度；
  *   2. 把 facts.json 变成台账，把 \res{} 与 \aiflag{} 数出来；
  *   3. 调 skill 里的 python 脚本（render / check / layout / appendix / compile / ai_report）；
  *   4. 把 PDF 流给前端。
@@ -177,7 +177,7 @@ function stripTexComments(text) {
   }).join('\n')
 }
 
-/** 七阶段进度：靠磁盘上的产物判断，不靠对话记忆。 */
+/** P0–P7 进度：靠磁盘上的产物判断，不靠对话记忆。 */
 function buildPhases(dir) {
   const has = (rel) => existsSync(path.join(dir, rel))
   const analysis = readTextSync(path.join(dir, 'analysis.md'))

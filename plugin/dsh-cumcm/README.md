@@ -2,13 +2,13 @@
 
 > 作者：**Rosynb666** · DeepSeek Harness 插件
 
-给 [math-modeling-cumcm](https://github.com/) skill 配一个**看得见的工作台**：在 DeepSeek Harness 右侧栏里看七阶段进度、事实台账，一键跑体检、编译论文 PDF。
+给 [math-modeling-cumcm](../../skill/math-modeling-cumcm/README.md) skill 配一个**看得见的工作台**：在 DeepSeek Harness 右侧栏里看 P0–P7 进度、事实台账，一键跑体检、编译论文 PDF。
 
 配套 skill 负责「怎么干」，这个插件负责「干到哪了、数字对不对、能不能交」。
 
 ## 它显示什么
 
-- **七阶段进度**：环境 → 破题 → 建模 → 求解 → 写作 → 图表 → 自检 → 合规，靠磁盘上的产物判断，不靠对话记忆。
+- **P0–P7 全流程**：环境 → 破题 → 建模 → 求解 → 写作 → 图表 → 自检 → 合规，靠磁盘上的产物判断，不靠对话记忆。
 - **新建工作区**：面板里输入名字（用题目关键词，不绑年份），自动建 `work/<名字>/` 并拷模板。
 - **事实台账**：`facts.json` 每条 key / 数值 / 单位 / 来源脚本，点开看对照检验。
 - **体检数字**：`\res{}` 占位符数、缺失 key、`\aiflag{}` 标注数、TODO 数、图表数。
@@ -73,7 +73,7 @@ $dsh = "$env:LOCALAPPDATA\Programs\DeepSeek Harness\resources\runtime\cli\bin\ds
 | GET | `/ping` | 自检：版本、skill 目录、projects 根 |
 | GET | `/projects` | 列出 projectsRoot 下像数模工作区的目录 |
 | POST | `/new` | `{name}` 新建工作区（建骨架 + 拷模板），重名 409、非法名 422 |
-| GET | `/status?dir=` | 七阶段 + 台账 + 计数 + PDF 状态 |
+| GET | `/status?dir=` | P0–P7 + 台账 + 计数 + PDF 状态 |
 | GET | `/text?dir=&path=` | 读白名单文本（facts.json / paper.tex / ai_log 等） |
 | GET | `/pdf?dir=&which=paper\|ai` | 流式返回 PDF |
 | POST | `/run` | `{dir, task}`，task ∈ render/check/layout/appendix/compile/ai |

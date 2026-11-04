@@ -2,7 +2,7 @@
   "name": "dsh-cumcm",
   "version": "0.1.0",
   "private": true,
-  "description": "数模台：DeepSeek Harness 下的国赛论文工作台——七阶段状态、facts 事实台账、一键体检与编译 PDF（配套 math-modeling-cumcm skill）",
+  "description": "数模台：DeepSeek Harness 下的国赛论文工作台——P0–P7 全流程状态、facts 事实台账、一键体检与编译 PDF（配套 math-modeling-cumcm skill）",
   "author": "Rosynb666",
   "type": "module",
   "main": "./lib/index.js",
