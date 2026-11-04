@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "problem": "2025 国赛 X 题（示例）",
+    "generated_by": "code/solve_q1.py",
+    "generated_at": "2025-09-05T10:00:00+08:00",
+    "seed": 42,
+    "note": "本文件只允许求解脚本写入。手写/编造的数值一律无效。"
+  },
+  "values": {
+    "rmse": {
+      "value": 0.0421,
+      "unit": "",
+      "format": ".4f",
+      "desc": "问题一 预测模型在验证集上的均方根误差",
+      "source": "code/solve_q1.py",
+      "check": "低于基线 ARIMA 的 0.0683"
+    },
+    "cost_total": {
+      "value": 1234.56,
+      "unit": "万元",
+      "format": ",.2f",
+      "desc": "问题二 最优方案总成本",
+      "source": "code/solve_q2.py",
+      "check": "较基准方案 1500 万元下降约 17.7%"
+    },
+    "cost_drop_pct": {
+      "value": 17.7,
+      "unit": "%",
+      "format": ".1f",
+      "desc": "问题二 成本下降百分比",
+      "source": "code/solve_q2.py",
+      "check": "(1500-1234.56)/1500"
+    },
+    "sens_alpha_10pct": {
+      "value": 0.031,
+      "unit": "",
+      "format": ".3f",
+      "desc": "灵敏度：目标权重 alpha 上浮 10% 后目标值变化率",
+      "source": "code/sensitivity.py",
+      "check": "变化 <5%，结论稳定"
+    }
+  }
+}

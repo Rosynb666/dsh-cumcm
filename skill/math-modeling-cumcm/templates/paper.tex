@@ -1,0 +1,251 @@
+% !TEX program = xelatex
+% ============================================================
+% 国赛论文模板（CUMCM 2025 规范）
+% 流程：python scripts/render.py  →  xelatex ×2（有 bib 则加 bibtex）
+% 规范要点：A4 / 页边距 2.5cm / 摘要 1 页 / 无目录 / 正文 ≤20 页
+%           页码从摘要页起为 1 / 页脚居中 / 不得出现学校队号信息
+% ============================================================
+\documentclass[UTF8,12pt,fontset=windows]{ctexart}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage[hidelinks]{hyperref}
+
+\geometry{a4paper, margin=2.5cm}
+\linespread{1.5}
+\pagestyle{plain}          % 页码页脚居中
+\pagenumbering{arabic}     % 从摘要页开始记为第 1 页
+
+% ---- 附录代码样式：白底、彩色语法、细边框、保留缩进 ----
+\\definecolor{kw}{HTML}{2F6F9F}\\definecolor{str}{HTML}{8A6D3B}\\definecolor{cmt}{HTML}{4C8C5A}\\definecolor{frm}{HTML}{C9CDD4}
+\lstdefinestyle{code}{
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{kw}\bfseries,
+  stringstyle=\color{str},
+  commentstyle=\color{cmt}\itshape,
+  breaklines=true, columns=fixed, basewidth=0.5em,
+  keepspaces=true, showstringspaces=false, tabsize=4,
+  frame=single, rulecolor=\color{frm}, framesep=4pt,
+  extendedchars=true, captionpos=b, xleftmargin=0.5em,
+}
+\lstset{style=code}
+\captionsetup{font=small, labelsep=quad}
+\setlength{\parindent}{2em}
+
+% 附录代码用等宽中文字体，避免源码里的中文注释掉字
+\setCJKmonofont{SimSun}
+\setlist{nosep, leftmargin=2em}
+
+% ---- 自定义命令 ----
+% 计算结果占位符：render.py 会替换为 facts.json 的数值；未渲染时显示红色 ??key??
+\newcommand{\res}[1]{\textcolor{red}{\textbf{??#1??}}}
+% AI 使用标注角标（编号对应参考文献中的 AI 工具条目）
+\newcommand{\aiflag}[1]{\textsuperscript{\textcolor{gray}{[AI#1]}}}
+% 待人工补充标记
+\newcommand{\todomark}[1]{\textcolor{orange}{\textbf{[TODO: #1]}}}
+% 单位（正体，避免与变量混淆）
+\newcommand{\unit}[1]{\,\mathrm{#1}}
+
+\begin{document}
+
+% ==================== 摘要页（第 1 页，严格 1 页） ====================
+\begin{center}
+  {\zihao{3}\heiti 基于\underline{\quad\quad\quad}的\underline{\quad\quad\quad}模型}
+\end{center}
+
+\vspace{0.6em}
+\begin{center}
+  {\zihao{4}\heiti 摘\quad 要}
+\end{center}
+
+\vspace{0.4em}
+
+% 四段式：背景一句 → 每问"方法+结果(带数字)" → 检验 → 评价。
+% 每个计算结果一律 \res{key}，不许手写；摘要几乎全由 AI 起草，末尾必须 \aiflag。
+针对……问题，本文建立了……模型，用以解决……\aiflag{1}。
+
+针对问题一，建立以……为目标、……为约束的……模型，采用……求解，得到 \res{rmse}，较基准方法下降……。
+
+针对问题二，构建……模型，用……算法求解，得最优总成本 \res{cost_total} 万元，较基准方案下降 \res{cost_drop_pct}\%。
+
+针对问题三，……
+
+模型检验表明，当关键参数上浮 10\% 时目标值变化率为 \res{sens_alpha_10pct}，结论稳健。% nofact: 10% 为实验设定输入
+
+本文模型的优点在于……，可推广至……\aiflag{1}
+
+\vspace{0.8em}
+\noindent\textbf{关键词：}\quad ……；……；……；……
+
+\newpage
+
+% ==================== 一、问题重述 ====================
+\section{问题重述}
+
+\subsection{问题背景}
+% 用自己的话改写，不得整段抄题。
+……
+
+\subsection{需要解决的问题}
+\begin{enumerate}[label=\textbf{问题\arabic*}：]
+  \item 在……条件下，建立……模型，求出……；
+  \item ……
+\end{enumerate}
+
+% ==================== 二、问题分析 ====================
+\section{问题分析}
+
+\subsection{总体思路}
+% 每问：目标 / 已知 / 缺什么 / 难在哪 → 打算怎么解。
+……
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figs/roadmap.pdf}
+  \caption{技术路线图}\label{fig:roadmap}
+\end{figure}
+
+如图 \ref{fig:roadmap} 所示，各问题之间按……依次推进。
+
+% ==================== 三、模型假设 ====================
+\section{模型假设}
+
+\begin{enumerate}[label=\textbf{假设\arabic*}：]
+  \item ……。\textbf{理由：}……。\textbf{放宽影响：}……。
+\end{enumerate}
+
+% ==================== 四、符号说明 ====================
+\section{符号说明}
+
+\begin{table}[H]
+  \centering
+  \caption{符号说明}\label{tab:symbols}
+  \begin{tabular}{clc}
+    \toprule
+    符号 & 含义 & 单位 \\
+    \midrule
+    $x_i$ & 第 $i$ 个决策变量 & —— \\
+    $c_i$ & 第 $i$ 项单位成本 & 万元 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+本文所用符号如表 \ref{tab:symbols} 所示，全文含义一致。
+
+% ==================== 五、模型建立与求解 ====================
+\section{模型建立与求解}
+
+\subsection{问题一模型的建立}
+
+……，目标函数如式 \eqref{eq:q1-obj} 所示。
+
+\begin{equation}
+  \min\ Z = \sum_{i=1}^{n} c_i x_i
+  \label{eq:q1-obj}
+\end{equation}
+
+\subsection{问题一模型的求解}
+
+% 写清算法选择理由、参数设置、复杂度或收敛性。
+
+\begin{table}[H]
+  \centering
+  \caption{问题一求解结果}\label{tab:q1-result}
+  \begin{tabular}{lrr}
+    \toprule
+    方法 & 误差指标 & 相对改进/\% \\
+    \midrule
+    基准方法 & …… & —— \\
+    本文方法 & \res{rmse} & …… \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+如表 \ref{tab:q1-result} 所示，……说明……。
+
+% ==================== 六、模型检验 ====================
+\section{模型检验}
+
+\subsection{灵敏度分析}
+% 至少一个参数扰动，给出数值与结论。
+当参数 $\alpha$ 上浮 10\% 时，目标值变化率为 \res{sens_alpha_10pct}，说明……。% nofact: 10\% 是实验设定输入值，非计算结果
+
+\subsection{稳健性检验}
+……
+
+% ==================== 七、模型评价与推广 ====================
+\section{模型评价与推广}
+
+\subsection{模型优点}
+\begin{enumerate}
+  \item ……（要具体，如"计算复杂度 $O(n\log n)$，可实时"）
+\end{enumerate}
+
+\subsection{模型缺点}
+\begin{enumerate}
+  \item ……（要诚实，如"依赖数据平稳性假设"）
+\end{enumerate}
+
+\subsection{模型推广}
+……
+
+% ==================== 参考文献 ====================
+\begin{thebibliography}{99}
+  \bibitem{ref1} 作者. 题名[M]. 出版地: 出版社, 年.
+  % AI 工具条目——官方格式：工具名称，版本/型号，开发机构/公司，使用日期
+  % 版本必须与 ai_log/env.md 里记录的实际调用模型一致
+  \bibitem{ai1} DeepSeek, DeepSeek-V3.2, 深度求索（DeepSeek）, 2025-09-05.
+\end{thebibliography}
+
+% ==================== AI 使用声明 ====================
+% 规定要求：未使用 AI 的队在此写"本参赛队未使用任何 AI 工具"；
+% 使用 AI 的队保留本声明，并确保正文角标、文献条目、支撑材料 PDF 三处齐全。
+\section*{AI 使用声明}
+\addcontentsline{toc}{section}{AI 使用声明}
+
+本论文在……环节使用了 DeepSeek 辅助生成初稿（见参考文献 \cite{ai1}），
+全部内容经参赛队审核、修改与确认，核心建模与分析由参赛队独立完成并负责。
+详细使用记录见支撑材料《AI 工具使用详情》。
+
+% ==================== 附录 ====================
+% 官方要求：附录必须含「支撑材料文件列表」+「全部完整可运行源码」。
+% 自动生成：python scripts/appendix.py work/<题号>  → paper/appendix.tex（本节自动引入）
+\newpage
+\appendix
+
+\IfFileExists{appendix.tex}{\input{appendix.tex}}{%
+\section{支撑材料文件列表}
+\begin{table}[H]
+  \centering
+  \caption{支撑材料文件列表}
+  \begin{tabular}{lll}
+    \toprule
+    文件名 & 说明 & 对应正文 \\
+    \midrule
+    code/solve\_q1.py & 问题一求解脚本 & 第 5 节 \\
+    facts.json & 数值结果台账 & 全文 \\
+    AI 工具使用详情.pdf & 合规材料 & —— \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{程序代码}
+% 手工贴代码时：UTF-8 无 BOM，单行 ≤100 字符，注明依赖与随机种子。
+\begingroup\small
+\begin{verbatim}
+# code/solve_q1.py
+# 依赖：numpy 2.x / pandas 3.x；运行：python code/solve_q1.py（随机种子 42）
+# 提示：运行 python scripts/appendix.py 可自动收录全部源码
+\end{verbatim}
+\endgroup
+}
+
+\end{document}

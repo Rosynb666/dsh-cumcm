@@ -1,0 +1,8 @@
+{
+  "version": 4,
+  "meta": { "problem": "2025 国赛 X 题（测试夹具）", "generated_by": "code/solve_q1.py", "seed": 42 },
+  "values": {
+    "rmse": { "value": 0.0421, "unit": "", "format": ".4f", "desc": "验证集 RMSE", "source": "code/solve_q1.py", "check": "低于基线 0.0683" },
+    "cost_total": { "value": 1234.56, "unit": "万元", "format": ",.2f", "desc": "最优总成本", "source": "code/solve_q2.py", "check": "较基准下降 17.7%" }
+  }
+}

@@ -1,0 +1,14 @@
+# dsh-cumcm bundle layer（package.json#dsh.bundle.patch）
+#
+# 本插件只插入一条 loader entry：宿主半边由 package.json#main 提供，
+# 浏览器半边在 package.json#dsh.client 声明，由 client-modules 服务装载。
+#
+# 想改默认值就在下面展开 config:
+#   - id: dsh-cumcm
+#     name: dsh-cumcm
+#     config:
+#       skillDir: ~/.dsh/skills/math-modeling-cumcm
+#       projectsRoot: ~/Desktop/DeepSeek/work
+- insert:
+    - id: dsh-cumcm
+      name: dsh-cumcm
