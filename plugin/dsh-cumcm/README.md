@@ -93,7 +93,7 @@ $dsh = "$env:LOCALAPPDATA\Programs\DeepSeek Harness\resources\runtime\cli\bin\ds
 ```powershell
 node --check lib/index.js
 node --check lib/client.js
-node test/api.test.js        # 16 条宿主接口测试（起真 http server，不依赖 DSH）
+node test/api.test.js        # 19 条宿主接口测试（起真 http server，不依赖 DSH）
 node test/client.test.js     # 6 条客户端测试（注册契约 + 真实 React 首屏渲染）
 ```
 
