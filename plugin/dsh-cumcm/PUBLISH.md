@@ -33,24 +33,29 @@
 | 面板渲染 | 真实 React SSR 渲染通过（标题/空态/刷新按钮） |
 | 环境 | Windows 11 · DSH 0.2.1-rc.3 · MiKTeX 26.5 · Python 3.14 |
 
-## 四、awesome-dsh-plugin PR 文案
+## 四、awesome-dsh-plugin 投稿
 
-```markdown
-- [dsh-cumcm](https://github.com/<you>/dsh-cumcm) — 数模台：国赛论文工作台。
-  右栏看七阶段进度与 facts 事实台账，一键 render / check / layout / 编译 PDF，
-  配套 math-modeling-cumcm skill。
+条目文件：`data/plugins/Rosynb666__dsh-cumcm--plugin-dsh-cumcm.yml`
+
+```yaml
+url: https://github.com/Rosynb666/dsh-cumcm/tree/main/plugin/dsh-cumcm
+name: Rosynb666/dsh-cumcm#dsh-cumcm
+category: workflow
+description:
+  en: "Math-modeling contest workbench for DeepSeek Harness: a sidebar P0–P7 progress board and traceable facts ledger, one-click render/check/layout/compile, PDF preview, and human sign-off; paired with the math-modeling-cumcm skill."
+  zh: "国赛论文工作台：侧栏展示 P0–P7 进度与可追溯的 facts 台账，一键执行 render/check/layout/编译，预览 PDF，并支持人工签字；配套 math-modeling-cumcm skill。"
 ```
 
-分类建议：`工具` / `文档`。
+分类：`workflow`（工作流与自动化）。仓库需先满 1 天，PR 只加这一个 YAML。
 
 ## 五、发布命令
 
 ```powershell
 git init
 git add .
-git commit -m "feat: dsh-cumcm 0.1.0 — 数模台（七阶段 + 事实台账 + 一键编译）"
+git commit -m "feat: dsh-cumcm 0.1.0 — 数模台（P0–P7 + 事实台账 + 一键编译）"
 git branch -M main
-git remote add origin https://github.com/<you>/dsh-cumcm.git
+git remote add origin https://github.com/Rosynb666/dsh-cumcm.git
 git push -u origin main
 ```
 
