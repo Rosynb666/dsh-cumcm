@@ -62,7 +62,7 @@ git push -u origin main
 装给别人：
 
 ```powershell
-dsh plugin --profile desktop add github:<you>/dsh-cumcm
+dsh plugin --profile desktop add github:Rosynb666/dsh-cumcm
 ```
 
 ## 六、还没做（说清楚，别吹）
@@ -70,5 +70,5 @@ dsh plugin --profile desktop add github:<you>/dsh-cumcm
 - 仅 Windows 实测；macOS/Linux 的字体与 LaTeX 探测未验证。
 - 面板只做了只读台账 + 六个动作，没有编辑器内预览 diff。
 - 依赖 skill 目录里的脚本；skill 与插件版本需要一起发。
-- 宿主接口有 16 条测试 + 客户端 6 条（`npm test`）；子进程执行路径未覆盖自动化测试，
+- 宿主接口有 19 条测试 + 客户端 6 条（`npm test`）；子进程执行路径未覆盖自动化测试，
   因为沙箱下 spawn 的 stdio 管道会被 EPERM 拦掉，只能真机手测。
